@@ -1,7 +1,6 @@
 @import "mixins/banner";
 @include bsBanner("");
 
-
 // scss-docs-start import-stack
 // Configuration
 @import "functions";
@@ -50,3 +49,51 @@
 // Utilities
 @import "utilities/api";
 // scss-docs-end import-stack
+
+.brand-text-icon {
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  text-decoration: none;
+  color: $primary !important;
+}
+
+header {
+  border-bottom: 1px solid $gray-200;
+  width: 100%;
+  position: relative;
+
+  .navbar {
+    height: 80px;
+
+    .navbar-nav {
+      margin-left: auto;
+      li.nav-item {
+        &.active {
+          a.nav-link {
+            color: $primary;
+          }
+        }
+        a {
+          &.nav-link {
+            letter-spacing: 1px;
+            color: $gray-900;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@each $color, $value in $grays {
+  .text-gray-#{$color} {
+    color: $value !important;
+  }
+}

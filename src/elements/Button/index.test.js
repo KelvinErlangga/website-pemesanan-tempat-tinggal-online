@@ -31,3 +31,4 @@ test("Should render <Link> tag", () => {
 
   expect(container.querySelector("a")).toBeInTheDocument();
 });
+
