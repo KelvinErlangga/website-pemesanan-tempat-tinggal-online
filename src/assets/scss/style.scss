@@ -3,6 +3,8 @@
 
 // scss-docs-start import-stack
 // Configuration
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 @import "functions";
 @import "variables";
 @import "variables-dark";
@@ -16,6 +18,7 @@
 @import "type";
 @import "images";
 @import "containers";
+@import "container-grid";
 @import "grid";
 @import "tables";
 @import "forms";
@@ -54,7 +57,7 @@
   font-family: "Poppins", sans-serif;
   font-style: italic;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 26px;
   line-height: 36px;
   text-decoration: none;
   color: $primary !important;
@@ -64,11 +67,12 @@ header {
   border-bottom: 1px solid $gray-200;
   width: 100%;
   position: relative;
+  margin-bottom: 50px;
 
   .navbar {
     height: 80px;
 
-    .navbar-nav {
+    ul.navbar-nav {
       margin-left: auto;
       li.nav-item {
         &.active {
@@ -95,5 +99,129 @@ header {
 @each $color, $value in $grays {
   .text-gray-#{$color} {
     color: $value !important;
+  }
+}
+
+.main-hero {
+  font-weight: 700 !important;
+}
+
+section {
+  margin-bottom: 80px;
+}
+
+.img-cover {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.img-contain {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
+.card {
+  &.bordered {
+    border: 1px solid $gray-200;
+  }
+  border-radius: 15px;
+
+  .tag {
+    font-weight: 600 !important;
+    z-index: 3;
+    font-size: 0.875rem;
+    background-color: $pink;
+    color: $white;
+    position: absolute;
+    border-radius: 0 15px;
+    padding: 0.5rem 3.25rem;
+    top: 0;
+    right: 0;
+    min-height: 40px;
+    font-weight: 400;
+    span {
+      font-weight: 300;
+    }
+  }
+
+  .img-wrapper {
+    height: 100%;
+    margin-bottom: 0;
+    border-radius: 0.9375rem;
+    overflow: hidden;
+  }
+
+  .meta-wrapper {
+    margin-top: 1rem;
+    h5 {
+      font-size: 1.125rem;
+      margin-bottom: 2px;
+    }
+    span {
+      font-size: 0.875rem;
+    }
+  }
+
+  .meta-wrapper a {
+    text-decoration: none !important;
+  }
+
+  &.card-featured {
+    overflow: hidden;
+    cursor: pointer;
+    height: 100%;
+    &::after {
+      position: absolute;
+      content: "";
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      transform: scale(1.1);
+      transition: 0.5s transform ease-in-out;
+      z-index: 2;
+      @include gradient-y(rgba($black, 0), rgba($black, 0.51), 0%, 100%);
+    }
+
+    .img-wrapper {
+      z-index: 1;
+      margin: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      transform: scale(1.1);
+      transition: 0.25s transform ease-in-out;
+    }
+
+    .meta-wrapper {
+      z-index: 4;
+      color: $white;
+      padding: 20px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      transform: translateY(0);
+      transition: 0.3s transform ease-in-out;
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+    }
+
+    &:hover {
+      .meta-wrapper {
+        transform: translateY(-10px);
+      }
+      &::after {
+        transform: scale(1);
+      }
+      .img-wrapper {
+        transform: scale(1);
+      }
+    }
   }
 }
