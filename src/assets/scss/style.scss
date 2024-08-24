@@ -1,6 +1,7 @@
 @import "mixins/banner";
 @include bsBanner("");
 
+@import "colorVariables";
 // scss-docs-start import-stack
 // Configuration
 
@@ -55,10 +56,8 @@
 
 .brand-text-icon {
   font-family: "Poppins", sans-serif;
-  font-style: italic;
   font-weight: 600;
   font-size: 26px;
-  line-height: 36px;
   text-decoration: none;
   color: $primary !important;
 }
@@ -132,8 +131,8 @@ section {
     font-weight: 600 !important;
     z-index: 3;
     font-size: 0.875rem;
-    background-color: $pink;
-    color: $white;
+    background-color: $warning;
+    color: $gray-900;
     position: absolute;
     border-radius: 0 15px;
     padding: 0.5rem 3.25rem;
@@ -223,5 +222,45 @@ section {
         transform: scale(1);
       }
     }
+  }
+}
+
+.testimonial-hero,
+.testimonial-hero img {
+  width: 365px;
+  height: 500px;
+}
+
+footer {
+  border-top: 1px solid $gray-200;
+  padding-top: 50px;
+
+  .list-group-item {
+    padding: 0.3125rem 0;
+    border: 0;
+    a,
+    span {
+      text-decoration: none;
+      color: $gray-500;
+      font-weight: 300;
+    }
+    a {
+      &:hover,
+      &:focus {
+        color: $gray-800;
+      }
+    }
+  }
+
+  .copyrights {
+    margin: 50px;
+    font-weight: 300;
+    color: $gray-500;
+  }
+
+  .brand-tagline {
+    color: $gray-500;
+    font-weight: 300;
+    margin-top: 8px;
   }
 }
