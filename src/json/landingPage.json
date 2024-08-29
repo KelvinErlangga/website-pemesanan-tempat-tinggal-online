@@ -175,10 +175,10 @@
   "testimonial": {
     "_id": "asd1293uasdads1",
     "imageUrl": "/images/testimonial-landingpages.jpg",
-    "name": "Happy Family",
+    "name": "Joyful Guests",
     "rate": 4.55,
-    "content": "A fun and unforgettable holiday, Comfortable rooms and beautiful views!",
+    "content": "An amazing and memorable stay, Cozy rooms with stunning scenery!",
     "familyName": "Kelvin",
-    "familyOccupation": "Full-stack Developer"
+    "familyOccupation": "Frontend Developer"
   }
 }

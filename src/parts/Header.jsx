@@ -2,16 +2,28 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import Button from "elements/Button";
 import BrandIcon from "parts/IconText";
+import { Fade } from "react-awesome-reveal";
 
-const Header = () => {
+export default function Header(props) {
   const location = useLocation();
 
   const getNavLinkClass = (path) => {
     return location.pathname === path ? " active" : "";
   };
 
+  if (props.isCentered)
+    return (
+      <header className="spacing-sm">
+        <div className="container">
+          <nav className="navbar navbar-expand-lg navbar-light">
+            <BrandIcon />
+          </nav>
+        </div>
+      </header>
+    );
+
   return (
-    <div>
+    <Fade triggerOnce>
       <header className="spacing-sm">
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light">
@@ -43,8 +55,6 @@ const Header = () => {
           </nav>
         </div>
       </header>
-    </div>
+    </Fade>
   );
-};
-
-export default Header;
+}

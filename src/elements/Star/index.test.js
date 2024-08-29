@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Star from ".";
+import Star from "./index";
 
 test("Should have props [value, height, width, spacing", () => {
   const height = 40,

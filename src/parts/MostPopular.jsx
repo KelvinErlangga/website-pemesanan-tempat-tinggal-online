@@ -1,11 +1,12 @@
 import Button from "elements/Button";
 import React from "react";
+import { Fade } from "react-awesome-reveal";
 
-const MostPopular = (props) => {
+export default function MostPopular(props) {
   return (
-    <div>
-      <section className="container" ref={props.refMostPopular}>
-        <h4 className="mb-3">Most Popular</h4>
+    <section className="container" ref={props.refMostPopular}>
+      <Fade triggerOnce direction="up" cascade damping={0.4}>
+        <h4 className="mb-4">Most Popular</h4>
         <div className="row">
           <div className="container-grid">
             {props.data.map((item, index) => {
@@ -14,7 +15,7 @@ const MostPopular = (props) => {
                   <div className="card card-featured">
                     <div className="tag">
                       ${item.price}
-                      <span className="">/{item.unit}</span>
+                      <span className="fw-light">/{item.unit}</span>
                     </div>
                     <figure className="img-wrapper">
                       <img src={item.imageUrl} alt={item.name} className="img-cover" />
@@ -33,9 +34,7 @@ const MostPopular = (props) => {
             })}
           </div>
         </div>
-      </section>
-    </div>
+      </Fade>
+    </section>
   );
-};
-
-export default MostPopular;
+}
