@@ -15,7 +15,7 @@ export default class LandingPage extends Component {
     this.refMostPopular = React.createRef();
   }
   componentDidMount() {
-    window.title = "Home | ";
+    window.title = "Home | Vinstay";
     window.scrollTo(0, 0);
   }
   render() {

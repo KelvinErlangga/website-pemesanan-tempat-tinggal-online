@@ -42,6 +42,7 @@ export default class BookingForm extends Component {
         },
       });
     }
+    
 
     if (prevState.data.duration !== data.duration) {
       const startDate = new Date(data.date.startDate);

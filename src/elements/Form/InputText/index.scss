@@ -1,6 +1,5 @@
 @import "../../../assets/scss/colorVariables";
-
-.input-date {
+.input-text {
   margin-bottom: 20px;
   position: relative;
   .input-group {
@@ -19,14 +18,13 @@
       position: absolute;
       z-index: 999;
     }
-
     .form-control {
       border: 0;
       border-radius: 4px;
       outline: 0;
       box-shadow: none;
       background-color: $gray-100;
-      padding: 0.575rem 45px;
+      padding: 0.575rem 14px;
       width: 100%;
       height: 45px;
       &::placeholder {

@@ -3,12 +3,13 @@ import React from "react";
 import propTypes from "prop-types";
 
 import "./index.scss";
+
 import { Fade } from "react-awesome-reveal";
 
 export default function Numbering({ className, data, current, style }) {
   const KeysOfData = Object.keys(data);
   return (
-    <Fade>
+    <Fade triggerOnce>
       <ol className={["stepper", className].join(" ")} style={style}>
         {KeysOfData.map((list, index) => {
           let isActive = list === current ? "active" : "";
@@ -16,6 +17,7 @@ export default function Numbering({ className, data, current, style }) {
             isActive = "";
             return null;
           }
+
           return (
             <li key={`list-${index}`} className={[isActive].join(" ")}>
               {index + 1}

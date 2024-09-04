@@ -1,13 +1,24 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 import propTypes from "prop-types";
 
 import "./index.scss";
 
 export default function File(props) {
-  const { name, accept, value, prepend, append, placeholder, outerClassName, inputClassName } = props;
+  const [FileName, setFileName] = useState("");
+  const { name, accept, prepend, append, placeholder, outerClassName, inputClassName } = props;
 
   const refInputFile = useRef(null);
+
+  const onChange = (event) => {
+    setFileName(event.target.value);
+    props.onChange({
+      target: {
+        name: event.target.name,
+        value: event.target.files,
+      },
+    });
+  };
 
   return (
     <div className={["input-text mb-3", outerClassName].join(" ")}>
@@ -17,8 +28,8 @@ export default function File(props) {
             <span className="input-group-text">{prepend}</span>
           </div>
         )}
-        <input name={name} accept={accept} ref={refInputFile} type="file" className="d-none" value={value} onChange={props.onChange} />
-        <input onClick={() => refInputFile.current.click()} defaultValue={value} placeholder={placeholder} className={["form-control", inputClassName].join(" ")} />
+        <input name={name} accept={accept} ref={refInputFile} type="file" className="d-none" value={FileName} onChange={onChange} />
+        <input onClick={() => refInputFile.current.click()} defaultValue={FileName} placeholder={placeholder} className={["form-control", inputClassName].join(" ")} />
         {append && (
           <div className="input-group-append bg-gray-900">
             <span className="input-group-text">{append}</span>
@@ -38,8 +49,8 @@ File.propTypes = {
   accept: propTypes.string.isRequired,
   value: propTypes.string.isRequired,
   onchange: propTypes.func.isRequired,
-  prepend: propTypes.oneOfType([propTypes.number, propTypes.string]).isRequired,
-  append: propTypes.oneOfType([propTypes.number, propTypes.string]).isRequired,
+  prepend: propTypes.oneOfType([propTypes.number, propTypes.string]),
+  append: propTypes.oneOfType([propTypes.number, propTypes.string]),
   placeholder: propTypes.string,
   outerClassName: propTypes.string,
   inputClassName: propTypes.string,
